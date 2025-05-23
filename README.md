@@ -54,6 +54,8 @@ This website demonstrates the complete implementation of a multi-page business w
 
 2. **Open your browser** to:
    - **http://localhost:3000/**
+   
+   > **Note**: After moving to the GitHub organization, the live site will be available at: **https://cryptoversus-reboot.github.io/**
 
 ### Project Structure
 
@@ -178,7 +180,8 @@ The project includes comprehensive tests for all feature functions using the Fle
    ```
 
 2. **Open the test runner** in your browser:
-   - **http://localhost:3000/tests/test-runner.html**
+   - **Local**: http://localhost:3000/tests/test-runner.html
+   - **Live site**: https://cryptoversus-reboot.github.io/tests/test-runner.html
 
 3. **Run tests**:
    - Click "Run All Tests" for the complete test suite
