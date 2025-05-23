@@ -423,9 +423,10 @@ const WebsiteApp = ({ currentPage }) => {
         }
     };
 
-    return jsx('div', null, [
+    return jsx('div', { className: 'overflow-x-hidden max-w-full' }, [
         Navigation({ currentPage, onNavigate: handleNavigate }),
-        jsx('main', null, [
+        jsx('div', { id: 'mobile-nav-overlay', className: 'md:hidden hidden fixed inset-0 backdrop-blur-sm bg-transparent z-40' }),
+        jsx('main', { className: 'overflow-x-hidden max-w-full' }, [
             renderPageComponent(),
             Footer()
         ])

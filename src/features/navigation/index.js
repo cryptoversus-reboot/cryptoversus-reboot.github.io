@@ -22,6 +22,18 @@ const safeOnClick = (callback, context = '') => {
     };
 };
 
+// Add helper to toggle mobile menu visibility
+const toggleMobileMenu = () => {
+    const menu = document.getElementById('mobile-nav-items');
+    const overlay = document.getElementById('mobile-nav-overlay');
+    if (menu) {
+        menu.classList.toggle('hidden');
+    }
+    if (overlay) {
+        overlay.classList.toggle('hidden');
+    }
+};
+
 // Navigation component as pure function
 const Navigation = ({ currentPage, onNavigate }) => {
     console.log(`[Navigation] Rendering navigation for current page: ${currentPage}`);
@@ -44,20 +56,20 @@ const Navigation = ({ currentPage, onNavigate }) => {
     };
 
     const inactiveButtonStyle = {
-        color: 'hsl(240 5% 64.9%)' // --muted-foreground
+        color: 'hsl(0 0% 98%)' // --foreground (changed from hsl(240 5% 64.9%))
     };
     
     // Note: Tailwind classes like 'fixed', 'shadow-md', 'container', 'flex', etc., are kept for layout.
     return jsx('header', { 
-        className: 'fixed top-0 left-0 right-0 shadow-md z-50',
+        className: 'fixed top-0 left-0 right-0 shadow-md z-50 max-w-full',
         style: headerStyle
     }, [
         jsx('nav', { 
-            className: 'container mx-auto px-4 sm:px-6 lg:px-8 flex items-center justify-between h-16'
+            className: 'container mx-auto px-4 sm:px-6 lg:px-8 flex items-center justify-between h-16 overflow-x-hidden max-w-full'
         }, [
             jsx('a', {
                 href: '/public/',
-                className: 'flex items-center space-x-3 text-xl font-bold transition-colors', // Added flex and spacing for logo
+                className: 'flex items-center space-x-3 text-xl font-bold transition-colors min-w-0', // Added flex and spacing for logo
                 style: navLinkStyle, // Explicit color
                 onClick: safeOnClick(() => onNavigate('home'))
             }, [
@@ -69,8 +81,18 @@ const Navigation = ({ currentPage, onNavigate }) => {
                 }),
                 jsx('span', {}, 'CryptoVersus.io')
             ]),
+            // Hamburger button for mobile
+            jsx('button', {
+                onClick: safeOnClick(() => toggleMobileMenu(), 'hamburger'),
+                className: 'md:hidden inline-flex flex-col justify-center items-center space-y-1 p-2 rounded-md text-white border border-white hover:text-gray-300 hover:bg-gray-700 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-white'
+            }, [
+                jsx('span', { className: 'block w-6 h-0.5 bg-white' }),
+                jsx('span', { className: 'block w-6 h-0.5 bg-white' }),
+                jsx('span', { className: 'block w-6 h-0.5 bg-white' })
+            ]),
+            // Desktop menu hidden on mobile
             jsx('ul', {
-                className: 'flex space-x-4'
+                className: 'hidden md:flex space-x-4'
             }, menuItems.map(item => 
                 jsx('li', { key: item.id }, [
                     jsx('button', {
@@ -81,7 +103,21 @@ const Navigation = ({ currentPage, onNavigate }) => {
                     }, item.label)
                 ])
             ))
-        ])
+        ]),
+        // Mobile menu items
+        jsx('div', {
+            id: 'mobile-nav-items',
+            className: 'md:hidden hidden absolute top-full left-0 w-full max-w-screen px-4 pt-2 pb-3 space-y-1 border-l border-r border-b rounded-b-md overflow-x-hidden z-50',
+            style: {
+                backgroundColor: 'hsla(240, 10%, 3.9%, 0.98)' // Less transparent dark background
+            }
+        }, menuItems.map(item =>
+            jsx('button', {
+                onClick: safeOnClick(() => { toggleMobileMenu(); onNavigate(item.id); }, `mobile-${item.id}`),
+                className: 'block px-3 py-2 rounded-md text-base font-medium',
+                style: currentPage === item.id ? activeButtonStyle : inactiveButtonStyle
+            }, item.label)
+        ))
     ]);
 };
 
