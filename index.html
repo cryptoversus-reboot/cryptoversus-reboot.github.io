@@ -3,12 +3,114 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' https://cdn.tailwindcss.com; style-src 'self' 'unsafe-inline' 'unsafe-eval' https://cdn.jsdelivr.net; img-src 'self' data:;">
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' https://cdn.tailwindcss.com https://www.googletagmanager.com; style-src 'self' 'unsafe-inline' 'unsafe-eval' https://cdn.jsdelivr.net; img-src 'self' data:; connect-src 'self' https://www.google-analytics.com https://analytics.google.com;">
+    
+    <!-- Initial SEO Meta Tags (will be updated dynamically) -->
+    <title>CryptoVersus.io - Enterprise Decentralized Infrastructure</title>
+    <meta name="description" content="Leading provider of enterprise decentralized infrastructure solutions. AWS for the decentralized web with security, scalability, and innovation.">
+    <meta name="keywords" content="blockchain, decentralized infrastructure, enterprise web3, crypto solutions, decentralized web, blockchain development, enterprise blockchain">
+    <meta name="author" content="CryptoVersus Team">
+    <meta name="robots" content="index, follow">
+    <meta name="language" content="en">
+    
+    <!-- Open Graph Meta Tags -->
+    <meta property="og:title" content="CryptoVersus.io - Enterprise Decentralized Infrastructure">
+    <meta property="og:description" content="Leading provider of enterprise decentralized infrastructure solutions. Transform your business with secure, scalable Web3 technology.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://cryptoversus.io">
+    <meta property="og:site_name" content="CryptoVersus.io">
+    <meta property="og:image" content="https://cryptoversus.io/images/og-image.jpg">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta property="og:locale" content="en_US">
+    
+    <!-- Twitter Card Meta Tags -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:site" content="@cryptoversus">
+    <meta name="twitter:creator" content="@cryptoversus">
+    <meta name="twitter:title" content="CryptoVersus.io - Enterprise Decentralized Infrastructure">
+    <meta name="twitter:description" content="Leading provider of enterprise decentralized infrastructure solutions. Transform your business with secure, scalable Web3 technology.">
+    <meta name="twitter:image" content="https://cryptoversus.io/images/og-image.jpg">
+    
+    <!-- Additional SEO Meta Tags -->
+    <meta name="theme-color" content="#667eea">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="default">
+    <meta name="apple-mobile-web-app-title" content="CryptoVersus.io">
+    <meta name="msapplication-TileColor" content="#667eea">
+    <meta name="referrer" content="strict-origin-when-cross-origin">
+    
+    <!-- Canonical URL -->
+    <link rel="canonical" href="https://cryptoversus.io/">
+    
+    <!-- Preconnect for performance -->
+    <link rel="preconnect" href="https://cdn.tailwindcss.com">
+    <link rel="preconnect" href="https://cdn.jsdelivr.net">
+    <link rel="preconnect" href="https://www.googletagmanager.com">
+    
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-DGYL8KG72E"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'G-DGYL8KG72E');
+    </script>
+    
+    <!-- Initial Schema.org Structured Data -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "Organization",
+        "name": "CryptoVersus.io",
+        "url": "https://cryptoversus.io",
+        "logo": "https://cryptoversus.io/images/logo.png",
+        "description": "Leading provider of enterprise decentralized infrastructure solutions",
+        "foundingDate": "2023",
+        "sameAs": [
+            "https://twitter.com/cryptoversus",
+            "https://linkedin.com/company/cryptoversus",
+            "https://github.com/cryptoversus"
+        ],
+        "contactPoint": {
+            "@type": "ContactPoint",
+            "contactType": "customer service",
+            "email": "contact@cryptoversus.io",
+            "url": "https://cryptoversus.io/contact"
+        },
+        "address": {
+            "@type": "PostalAddress",
+            "addressCountry": "US",
+            "addressRegion": "Global"
+        }
+    }
+    </script>
+    
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "WebSite",
+        "name": "CryptoVersus.io",
+        "url": "https://cryptoversus.io",
+        "description": "Enterprise decentralized infrastructure solutions and Web3 services",
+        "publisher": {
+            "@type": "Organization",
+            "name": "CryptoVersus.io",
+            "url": "https://cryptoversus.io"
+        },
+        "potentialAction": {
+            "@type": "SearchAction",
+            "target": "https://cryptoversus.io/search?q={search_term_string}",
+            "query-input": "required name=search_term_string"
+        }
+    }
+    </script>
+    
     <!-- Cache-busting meta tags for development -->
     <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
     <meta http-equiv="Pragma" content="no-cache">
     <meta http-equiv="Expires" content="0">
-    <title>CryptoVersus.io - Enterprise Decentralized Infrastructure</title>
     
     <script src="https://cdn.tailwindcss.com"></script>
     

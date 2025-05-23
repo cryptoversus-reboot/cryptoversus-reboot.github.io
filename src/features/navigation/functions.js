@@ -1,6 +1,7 @@
 // Navigation utility functions
 import Maybe from '../../core/types/maybe.js';
 import Either from '../../core/types/either.js';
+import { updatePageSEO } from '../../core/seo/index.js';
 
 // Navigation state
 const navigationState = {
@@ -31,6 +32,15 @@ const setCurrentPage = (page) => {
     if (validPage) {
         navigationState.currentPage = page;
         console.log(`[Navigation] Successfully set current page to: ${page}`);
+        
+        // Update SEO for the new page
+        const seoResult = updatePageSEO(page);
+        if (seoResult.type === 'Error') {
+            console.warn(`[Navigation] SEO update failed for page ${page}:`, seoResult.error);
+        } else {
+            console.log(`[Navigation] SEO updated successfully for page: ${page}`);
+        }
+        
         return Either.Right(page);
     }
     console.error(`[Navigation] Invalid page requested: ${page}. Valid pages: ${Object.keys(routes).join(', ')}`);

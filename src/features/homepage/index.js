@@ -15,6 +15,7 @@ import { createErrorBoundary, setupGlobalErrorHandler } from '../../systems/erro
 import Maybe from '../../core/types/maybe.js';
 import Result from '../../core/types/result.js';
 import Either from '../../core/types/either.js';
+import { initSEO } from '../../core/seo/index.js';
 
 // Import all page components
 import ServicesPage from '../services/index.js';
@@ -442,6 +443,15 @@ const initWebsite = (containerId) => {
             throw new Error(`Container element with id '${containerId}' not found`);
         }
         console.log(`[Homepage] Container element found successfully`);
+
+        // Initialize SEO system
+        console.log(`[Homepage] Initializing SEO system...`);
+        const seoResult = initSEO();
+        if (seoResult.type === 'Error') {
+            console.warn(`[Homepage] SEO initialization failed:`, seoResult.error);
+        } else {
+            console.log(`[Homepage] SEO system initialized successfully`);
+        }
 
         // Initialize path-based routing
         console.log(`[Homepage] Setting up path-based routing...`);

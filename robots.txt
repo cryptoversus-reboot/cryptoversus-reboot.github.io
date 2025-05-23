@@ -1,0 +1,19 @@
+User-agent: *
+Allow: /
+
+# Disallow development and admin paths
+Disallow: /admin/
+Disallow: /dev/
+Disallow: /tests/
+Disallow: *.js$
+Disallow: /src/
+
+# Allow important files
+Allow: /sitemap.xml
+Allow: /robots.txt
+
+# Crawl-delay (optional, adjust as needed)
+Crawl-delay: 1
+
+# Sitemap location
+Sitemap: https://cryptoversus.io/sitemap.xml 
