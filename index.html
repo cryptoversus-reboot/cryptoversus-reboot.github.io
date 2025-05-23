@@ -95,7 +95,7 @@
                 await clearBrowserCaches();
                 
                 // Dynamic import with enhanced cache busting
-                const moduleUrl = getCacheBustingUrl('../src/features/homepage/index.js');
+                const moduleUrl = getCacheBustingUrl('./src/features/homepage/index.js');
                 console.log('Loading module with cache-busting URL:', moduleUrl);
                 
                 const { default: initWebsite } = await import(moduleUrl);

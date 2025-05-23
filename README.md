@@ -2,6 +2,8 @@
 
 A modern enterprise website built with the FlexNet JSX framework, showcasing CryptoVersus.io's enterprise decentralized infrastructure services.
 
+> **Note**: This project has been moved to its own repository. The FlexNet JSX framework documentation and core implementation can be found at [flexnet-jsx-docs](https://github.com/seandinwiddie/flexnet-jsx-docs).
+
 ## Overview
 
 This website demonstrates the complete implementation of a multi-page business website using FlexNet JSX framework principles:
@@ -51,7 +53,7 @@ This website demonstrates the complete implementation of a multi-page business w
    ```
 
 2. **Open your browser** to:
-   - **http://localhost:3000/public/**
+   - **http://localhost:3000/**
 
 ### Project Structure
 
@@ -83,11 +85,13 @@ starter-project-website/
 │       ├── faqs/               # FAQs page (placeholder)
 │       └── mission/            # Mission page (placeholder)
 │
-├── public/                     # Static assets
-│   └── index.html             # Main entry point
+├── index.html                  # Main entry point
 │
 └── tests/                     # Test suite
-    └── ...
+    ├── features/              # Feature-specific tests
+    │   ├── homepage/          # Homepage function tests
+    │   └── navigation/        # Navigation function tests
+    └── test-runner.html       # Browser-based test runner
 ```
 
 ## Content Implementation
@@ -162,6 +166,40 @@ const SafeComponent = createErrorBoundary(ErrorFallback);
 4. **Use Result type** for operations that might fail
 5. **Handle both success and error cases** explicitly
 
+## Testing
+
+The project includes comprehensive tests for all feature functions using the FlexNet JSX testing framework.
+
+### Running Tests
+
+1. **Start the development server**:
+   ```bash
+   python -m http.server 3000
+   ```
+
+2. **Open the test runner** in your browser:
+   - **http://localhost:3000/tests/test-runner.html**
+
+3. **Run tests**:
+   - Click "Run All Tests" for the complete test suite
+   - Or run individual feature tests separately
+
+### Test Structure
+
+- **Homepage Tests**: Test all content getter functions and CTA handlers
+- **Navigation Tests**: Test routing, state management, and URL parsing
+- **Type Safety**: All tests verify proper Maybe, Either, and Result type usage
+- **Error Handling**: Tests cover both success and failure scenarios
+
+### Adding New Tests
+
+When adding new features:
+
+1. Create test directory: `tests/features/your-feature/`
+2. Add test file: `your-feature.test.js`
+3. Import and test all pure functions from `src/features/your-feature/functions.js`
+4. Follow the existing test patterns for consistency
+
 ## Technologies Used
 
 - **FlexNet JSX Framework**: Modern functional reactive framework
@@ -175,7 +213,9 @@ This project demonstrates the FlexNet JSX framework implementation for enterpris
 
 ## Resources
 
-- [FlexNet JSX Documentation](../README.md)
-- [Architecture Overview](../ARCHITECTUREOVERVIEW.md)
-- [Security Practices](../security-practices.md)
-- [API Reference](../api-reference.md) 
+- [FlexNet JSX Documentation](https://github.com/seandinwiddie/flexnet-jsx-docs/blob/main/README.md)
+- [Architecture Overview](https://github.com/seandinwiddie/flexnet-jsx-docs/blob/main/ARCHITECTUREOVERVIEW.md)
+- [Security Practices](https://github.com/seandinwiddie/flexnet-jsx-docs/blob/main/security-practices.md)
+- [API Reference](https://github.com/seandinwiddie/flexnet-jsx-docs/blob/main/api-reference.md)
+- [Getting Started Guide](https://github.com/seandinwiddie/flexnet-jsx-docs/blob/main/getting-started-guide.md)
+- [HTTP System Documentation](https://github.com/seandinwiddie/flexnet-jsx-docs/blob/main/http-system.md) 
