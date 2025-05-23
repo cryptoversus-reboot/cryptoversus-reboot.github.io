@@ -1,7 +1,7 @@
 // Main SEO Management System
 import Result from '../types/result.js';
 import { updateMetaTags, getPageSEOConfig, SEO_CONFIG } from './meta-tags.js';
-import { updatePageSchemas } from './schema.js';
+import { updatePageSchemas, generateOrganizationSchema, generateWebsiteSchema, generateServiceSchemas, generateFAQSchema, generateBreadcrumbSchema, generateOfferingSchema, generateLocalBusinessSchema, PAGE_SCHEMAS, validateSchema } from './schema.js';
 import { initSitemapService, serveSitemap, serveRobotsTxt } from './sitemap.js';
 import { initSEOUtils, AnalyticsUtils } from './utils.js';
 
@@ -329,7 +329,6 @@ export const validatePageSEO = (pageId) => {
  */
 export {
     updateMetaTags,
-    updatePageSchemas,
     getPageSEOConfig,
     SEO_CONFIG
 } from './meta-tags.js';
