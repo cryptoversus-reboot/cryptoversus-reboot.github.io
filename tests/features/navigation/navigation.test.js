@@ -145,7 +145,7 @@ test('handleNavigation should handle valid pages', () => {
         
         if (window.history) {
             assertEqual(pushStateCalled, true, 'Should call pushState');
-            assertEqual(pushedPath, '/public/services', 'Should push correct path');
+            assertEqual(pushedPath, '/services', 'Should push correct path');
         }
     } finally {
         // Restore original functions
@@ -174,27 +174,27 @@ test('getPageFromPath should parse URL paths correctly', () => {
     try {
         // Test home path
         Object.defineProperty(window.location, 'pathname', {
-            value: '/public/',
+            value: '/',
             configurable: true
         });
         
         let page = getPageFromPath();
         assertMaybe(page, 'Home path parsing');
-        assertEqual(page.value, 'home', 'Should return home for /public/');
+        assertEqual(page.value, 'home', 'Should return home for /');
         
         // Test services path
         Object.defineProperty(window.location, 'pathname', {
-            value: '/public/services',
+            value: '/services',
             configurable: true
         });
         
         page = getPageFromPath();
         assertMaybe(page, 'Services path parsing');
-        assertEqual(page.value, 'services', 'Should return services for /public/services');
+        assertEqual(page.value, 'services', 'Should return services for /services');
         
         // Test invalid path
         Object.defineProperty(window.location, 'pathname', {
-            value: '/public/invalid',
+            value: '/invalid',
             configurable: true
         });
         
