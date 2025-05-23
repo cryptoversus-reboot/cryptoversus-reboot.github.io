@@ -57,10 +57,18 @@ const Navigation = ({ currentPage, onNavigate }) => {
         }, [
             jsx('a', {
                 href: '/public/',
-                className: 'text-xl font-bold transition-colors', // Removed hover:text-zinc-300, hover will be via style if needed
+                className: 'flex items-center space-x-3 text-xl font-bold transition-colors', // Added flex and spacing for logo
                 style: navLinkStyle, // Explicit color
                 onClick: safeOnClick(() => onNavigate('home'))
-            }, 'CryptoVersus.io'),
+            }, [
+                jsx('img', {
+                    src: './cryptoversus-reboot_icon.png',
+                    alt: 'CryptoVersus.io Logo',
+                    className: 'h-8 w-8', // 32px height and width
+                    style: { objectFit: 'contain' }
+                }),
+                jsx('span', {}, 'CryptoVersus.io')
+            ]),
             jsx('ul', {
                 className: 'flex space-x-4'
             }, menuItems.map(item => 
