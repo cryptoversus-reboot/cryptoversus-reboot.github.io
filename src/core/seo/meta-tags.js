@@ -12,7 +12,7 @@ export const SEO_CONFIG = {
     defaultTitle: 'CryptoVersus.io - Enterprise Decentralized Infrastructure',
     defaultDescription: 'Leading provider of enterprise decentralized infrastructure solutions. AWS for the decentralized web with security, scalability, and innovation.',
     defaultKeywords: 'blockchain, decentralized infrastructure, enterprise web3, crypto solutions, decentralized web, blockchain development, enterprise blockchain',
-    defaultImage: 'https://cryptoversus.io/images/og-image.jpg',
+    defaultImage: 'https://cryptoversus.io/cryptoversus-reboot_logo.png',
     twitterHandle: '@cryptoversus',
     author: 'CryptoVersus Team',
     language: 'en',

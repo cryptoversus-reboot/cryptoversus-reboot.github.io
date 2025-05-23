@@ -46,7 +46,7 @@ export const PerformanceUtils = {
         return Result.fromTry(() => {
             const defaultResources = [
                 { href: 'https://cdn.tailwindcss.com', as: 'style' },
-                { href: '/images/logo.png', as: 'image' }
+                { href: '/cryptoversus-reboot_logo.png', as: 'image' }
             ];
 
             const allResources = [...defaultResources, ...resources];

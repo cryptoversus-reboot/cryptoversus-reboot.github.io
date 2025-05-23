@@ -13,7 +13,7 @@ export const generateOrganizationSchema = () => {
             "@type": "Organization",
             "name": "CryptoVersus.io",
             "url": "https://cryptoversus.io",
-            "logo": "https://cryptoversus.io/images/logo.png",
+            "logo": "https://cryptoversus.io/cryptoversus-reboot_logo.png",
             "description": "Leading provider of enterprise decentralized infrastructure solutions",
             "foundingDate": "2023",
             "sameAs": [
@@ -238,7 +238,7 @@ export const generateLocalBusinessSchema = () => {
             "@context": "https://schema.org",
             "@type": "ProfessionalService",
             "name": "CryptoVersus.io",
-            "image": "https://cryptoversus.io/images/logo.png",
+            "image": "https://cryptoversus.io/cryptoversus-reboot_logo.png",
             "description": "Professional decentralized infrastructure and blockchain development services",
             "url": "https://cryptoversus.io",
             "telephone": "+1-555-CRYPTO",
