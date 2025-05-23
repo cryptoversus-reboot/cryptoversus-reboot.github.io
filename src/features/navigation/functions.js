@@ -44,17 +44,17 @@ const toggleMenu = () => {
     return Maybe.Just(navigationState.isMenuOpen);
 };
 
-// Get menu items (updated for path-based routing)
+// Get menu items (updated for root domain routing)
 const getMenuItems = () => Maybe.Just([
-    { id: 'home', label: 'Home', href: '/public/' },
-    { id: 'services', label: 'Services/Offer', href: '/public/services' },
-    { id: 'about', label: 'About', href: '/public/about' },
-    { id: 'contact', label: 'Contact', href: '/public/contact' },
-    { id: 'faqs', label: 'FAQs', href: '/public/faqs' },
-    { id: 'mission', label: 'Mission', href: '/public/mission' }
+    { id: 'home', label: 'Home', href: '/' },
+    { id: 'services', label: 'Services/Offer', href: '/services' },
+    { id: 'about', label: 'About', href: '/about' },
+    { id: 'contact', label: 'Contact', href: '/contact' },
+    { id: 'faqs', label: 'FAQs', href: '/faqs' },
+    { id: 'mission', label: 'Mission', href: '/mission' }
 ]);
 
-// Navigation click handler (updated for path-based routing)
+// Navigation click handler (updated for root domain routing)
 const handleNavigation = (pageId) => {
     console.log(`[Navigation] Handling navigation to: ${pageId}`);
     
@@ -63,9 +63,9 @@ const handleNavigation = (pageId) => {
             // Scroll to top when changing pages
             window.scrollTo({ top: 0, behavior: 'smooth' });
             
-            // Update browser URL without page reload using path-based routing
+            // Update browser URL without page reload using root domain routing
             if (window.history && window.history.pushState) {
-                const newPath = page === 'home' ? '/public/' : `/public/${page}`;
+                const newPath = page === 'home' ? '/' : `/${page}`;
                 console.log(`[Navigation] Updating URL to: ${newPath}`);
                 window.history.pushState({ page }, '', newPath);
             }
@@ -74,18 +74,18 @@ const handleNavigation = (pageId) => {
         });
 };
 
-// Get page from URL path (updated for path-based routing)
+// Get page from URL path (updated for root domain routing)
 const getPageFromPath = () => {
     const pathname = window.location.pathname;
     console.log(`[Navigation] Getting page from current path: ${pathname}`);
     
     // Handle different path patterns
-    if (pathname === '/public/' || pathname === '/public') {
+    if (pathname === '/' || pathname === '') {
         console.log(`[Navigation] Path matches home page`);
         return Maybe.Just('home');
     }
     
-    // Extract page from path like /public/services
+    // Extract page from path like /services
     const pathParts = pathname.split('/');
     const lastPart = pathParts[pathParts.length - 1];
     
@@ -111,9 +111,9 @@ const handlePopState = () => {
     });
 };
 
-// Initialize path-based routing
+// Initialize root domain routing
 const initializeRouting = () => {
-    console.log(`[Navigation] Initializing path-based routing`);
+    console.log(`[Navigation] Initializing root domain routing`);
     
     // Handle browser back/forward buttons
     window.addEventListener('popstate', handlePopState);
@@ -125,7 +125,7 @@ const initializeRouting = () => {
         setCurrentPage(page);
     });
     
-    console.log(`[Navigation] Path-based routing initialized successfully`);
+    console.log(`[Navigation] Root domain routing initialized successfully`);
 };
 
 // Export the remaining functions that don't have individual exports
